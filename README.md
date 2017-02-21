@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist wardany/yii-slug-input "*"
+php composer.phar require --prefer-dist wardany/yii-slug-input:dev-master
 ```
 
 or add
 
 ```
-"wardany/yii-slug-input": "*"
+"wardany/yii-slug-input": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
@@ -28,4 +28,4 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \wardany\slugify\Slugify::widget(); ?>```
+<?= $form->field($model, 'slug')->widget(Slugify::className(),['source_attribute'=>'title', 'separator'=>'_', 'disable'=> true]) ?>```
