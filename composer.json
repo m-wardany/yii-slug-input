@@ -13,13 +13,7 @@
     "require": {
         "yiisoft/yii2": "*"
     },
-    "repositories": [
-        {
-          "type": "vcs",
-          "url":  "git@github.com:m-wardany/yii-slug-input.git"
-        }
-    ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "wardany\\slugify\\": ""
