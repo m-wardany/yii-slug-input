@@ -1,0 +1,21 @@
+{
+    "name": "wardany/yii-slug-input",
+    "description": "Generate auto slug text from any input using model input or just Html id attribute",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"," slugify"," slug input"," javascript"," jQuery"," widget"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "muhammad wardany",
+            "email": "muhammad.wardany@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "wardany\\slugify\\": ""
+        }
+    }
+}
