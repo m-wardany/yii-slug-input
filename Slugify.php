@@ -48,14 +48,26 @@ class Slugify extends InputWidget{
         echo $this->renderWidget() . "\n";
         
         echo $this->view->registerJs("
-            jQuery(document).on('keyup', '#{$id}', function(){
-                text = $(this).val().toString().toLowerCase()
+            function slug(text){
+                return text.toString().toLowerCase()
                         .replace(/\s+/g, '{$this->separator}')                                              // Replace spaces with separator
                         .replace(/\-+/g, '{$this->separator}')                                              // Replace dashes with separator
                         .replace(/[^\w\-]+/g, '')                                                           // Remove all non-word chars
                         .replace(/\{$this->separator}\{$this->separator}+/g, '{$this->separator}')          // Replace multiple separator with single separator
                         .replace(/^{$this->separator}+/, '')                                                // Trim separator from start of text
                         .replace(/{$this->separator}+$/, '');                                               // Trim separator from end of text
+                
+                
+            };", \yii\web\View::POS_END, 'slug-function');
+        echo $this->view->registerJs("
+            jQuery(document).on('change', '#{$id}', function(){
+                text = slug($(this).val());
+                $('#{$target_id}').val(text);
+                
+            });", \yii\web\View::POS_END);
+        echo $this->view->registerJs("
+            jQuery(document).on('keyup', '#{$id}', function(){
+                text = slug($(this).val());
                 $('#{$target_id}').val(text);
                 
             });", \yii\web\View::POS_END);
