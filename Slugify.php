@@ -70,6 +70,18 @@ class Slugify extends InputWidget{
                 text = slug($(this).val());
                 $('#{$target_id}').val(text);
                 
+            });", \yii\web\View::POS_END); 
+        echo $this->view->registerJs("
+            jQuery(document).on('change', '#{$target_id}', function(){
+                text = slug($(this).val());
+                $('#{$target_id}').val(text);
+                
+            });", \yii\web\View::POS_END);
+        echo $this->view->registerJs("
+            jQuery(document).on('keyup', '#{$target_id}', function(){
+                text = slug($(this).val());
+                $('#{$target_id}').val(text);
+                
             });", \yii\web\View::POS_END);
     }
     
